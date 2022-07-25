@@ -13,10 +13,10 @@
         {
             Console.WriteLine("Hello, World! Please enter your name");
 
-            // 2. instantiate the class - for delegate to use instance method, insted of statid method
+            // instantiate the class containing the method that will be used by the delegate - for delegate to use instance method, insted of statid method
             Log log = new Log(); 
 
-            // 3. Invoke delegate
+            // Invoke delegate
             AddTotal addTotal = new AddTotal(Add);// Add;  //Pass the method to delegate
 
             int total = addTotal(10, 20);// addTotal.Invoke(19, 20);
@@ -36,10 +36,10 @@
             /** Multicasting delegate*/
             
             LogDel LogTextToScreen, LogTextToScreen2; // Instantiate delegate
-
+              
             // Pass the method to delegate to be invokded
             //
-            LogTextToScreen = log.LogTextToScreen; // new LogDel(log.LogTextToScreen);
+            LogTextToScreen = log.LogTextToScreen; // new LogDel(log.LogTextToScreen); // use instance method, instead of static method
             LogTextToScreen2 = new LogDel(log.LogTexttoScreen2);
 
 
@@ -51,7 +51,13 @@
 
             // Invoke multicast delegate
             //
-            multiLogDel(name!, DateTime.Now);            
+            multiLogDel(name!, DateTime.Now);
+
+            // alternative way to invoke the delegate by passing the delegate, as an argument, to the static method
+            //
+            LogText(multiLogDel, name!); // passing multicase delegate to the static method - Two method executed
+
+            LogText(LogTextToScreen, name!); // passing single delegate to the static method - One method executed
 
             Console.ReadKey();
         }
