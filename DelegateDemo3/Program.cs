@@ -2,7 +2,7 @@
 using DelegateDemo3;
 using System.Collections.Generic;
 
-Console.WriteLine("Generic Delegate Demo");
+Console.WriteLine("Generic Delegate Demo - Func and Action");
 
 //******************* Func ******************************
 

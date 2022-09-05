@@ -11,7 +11,7 @@
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World! Please enter your name");
+            Console.WriteLine("Basic Delegate! Please enter your name");
 
             // instantiate the class containing the method that will be used by the delegate - for delegate to use instance method, insted of statid method
             Log log = new Log(); 
@@ -19,7 +19,7 @@
             // Invoke delegate
             AddTotal addTotal = new AddTotal(Add);// Add;  //Pass the method to delegate
 
-            int total = addTotal(10, 20);// addTotal.Invoke(19, 20);
+            int total = addTotal(10, 20);// addTotal.Invoke(19, 20); // NOTE: here is the Syncronous operation of Invoke(), for Asyncronous, see demo in Async Call Back project
 
             Console.WriteLine("Invokded by deletegate, the total is {0}", total);
             /**  */
