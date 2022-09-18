@@ -8,7 +8,7 @@ Console.WriteLine("Generics - Delegate and Events - Realtime Warehouse Managemen
 
 CustomQueue<HardwareItem> hardwareItemQueue = new CustomQueue<HardwareItem>();
 
-hardwareItemQueue.CustomQueueEvent += CustomQueue_CustomQueueEvent;
+hardwareItemQueue.CustomQueueEvent += CustomQueue_CustomQueueEvent; //subscribes the event
 
 AddHardwareItems(hardwareItemQueue);
 

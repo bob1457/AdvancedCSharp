@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace WarehouseApi
 {
-    public delegate void QueueEventHandler<T, U>(T sender, U eventArgs);
+    public delegate void QueueEventHandler<T, U>(T sender, U eventArgs); // Delcare delegate
 
     public class CustomQueue<T> where T : IEntityPrimaryProperties, IEntityAdditionalProperties
     {
         Queue<T> _queue = null;
 
-        public event QueueEventHandler<CustomQueue<T>, QueueEventArgs> CustomQueueEvent;
+        public event QueueEventHandler<CustomQueue<T>, QueueEventArgs> CustomQueueEvent; // Declare event, which is a type of the delegate declared above
 
-        public CustomQueue()
+        public CustomQueue() // Constructor
         {
             _queue = new Queue<T>();
         }
@@ -45,7 +45,7 @@ namespace WarehouseApi
 
         }
 
-        protected virtual void OnQueueChanged(QueueEventArgs a)
+        protected virtual void OnQueueChanged(QueueEventArgs a) 
         {
             CustomQueueEvent(this, a);
         }
