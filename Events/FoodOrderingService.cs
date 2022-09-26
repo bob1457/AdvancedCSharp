@@ -21,8 +21,9 @@ namespace Events
         }
 
         private void OnFoodPrepared()
-        {            
-            FoodPepared(this, null); // It has the same signature as the delegate
+        {   
+            if(FoodPepared is not null)         
+                FoodPepared(this, null); // It has the same signature as the delegate
         }
     }
 
